@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Products } from './entities/products.entities.js';
 import { Repository, ILike } from 'typeorm';
@@ -49,7 +49,7 @@ export class ProductsService {
     }
     catch(error)
     {
-        throw new NotFoundException('Product not found');
+        throw new BadRequestException('Product not found');
     }
   }
 
@@ -69,7 +69,7 @@ export class ProductsService {
     }
     catch(error)
     {
-        throw new NotFoundException('Product not found');
+        throw new BadRequestException('Product not found');
     }
   }
 
